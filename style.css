@@ -79,3 +79,10 @@ body {
     color: #ab2424
 }
 
+.caja-juego .teclado {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 40px;
+    justify-content: center;
+}
