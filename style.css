@@ -40,4 +40,13 @@ body {
     text-transform: uppercase;
 }
 
+.caja-juego .visualizacion-palabra {
+    gap: 10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 
