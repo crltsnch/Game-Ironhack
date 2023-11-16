@@ -130,3 +130,18 @@ body {
     transition: opacity 0.4s ease;
 }
 
+.modal-juego.mostrar {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.4s 0.4s ease;
+}
+
+.modal-juego .contenido {
+    padding: 30px;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.1);
+}
