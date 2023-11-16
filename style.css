@@ -86,3 +86,16 @@ body {
     margin-top: 40px;
     justify-content: center;
 }
+
+:where(.modal-juego, .teclado) button {
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: #a2578b;
+}
+
