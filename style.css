@@ -16,3 +16,28 @@ body {
   background: #a2578b;
 }
 
+.contenedor {
+    display: flex;
+    width: 850px;
+    gap: 70px;
+    padding: 60px 40px;
+    background: #fff;
+    border-radius: 10px;
+    align-items: flex-end;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.1);
+}
+
+.caja-ahorcado img {
+   user-select: none;
+   max-width: 270px;
+}
+
+.caja-ahorcado h1 {
+    font-size: 1.45rem;
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+
