@@ -56,10 +56,26 @@ body {
     font-weight: 600;
     margin-bottom: 40px;
     text-transform: uppercase;
-    border-bottom: 3px solid #1d1d1d;
+    border-bottom: 3px solid #151414;
 }
 
 .visualizacion-palabra .letra.adivinada {
     margin: -40px 0 35px;
     border-color: transparent;
 }
+
+.caja-juego h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.caja-juego h4 b {
+    font-weight: 600;
+}
+
+.caja-juego .texto-intentos b {
+    color: #ab2424
+}
+
