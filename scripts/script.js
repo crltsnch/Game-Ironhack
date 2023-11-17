@@ -28,3 +28,11 @@ const obtenerPalabraAleatoria = () => {
     reiniciarJuego();
 }
 
+const finDelJuego = (esVictoria) => {
+    //Despues de completar el juego
+    const textoModal = esVictoria ? 'Has encontrado la palabra:' : 'La palabra correcta era:';
+    modalJuego.querySelector("img").src = 'images/${esVictoria ? "win" : "lose"}.gif';
+    modalJuego.querySelector("h4").innerText = esVictoria ? '¡Felicidades!' : '¡Fin del juego!';
+    modalJuego.querySelector("p").innerHTML = '${textoModal} <b>${palabraActual}</b>';
+    modalJuego.classList.add("show");
+}
