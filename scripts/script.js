@@ -20,3 +20,11 @@ const reiniciarJuego = () => {
     modalJuego.classList.remove("show");
 }
 
+const obtenerPalabraAleatoria = () => {
+    //Seleccionando una palabra aleatoria y pista del array de palabras
+    const { word, hint} = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
+    palabraActual = word; //Haciendo que la palabra actual sea la palabra seleccionada
+    document.querySelector(".hint-text b").innerText = hint; //Mostrando la pista
+    reiniciarJuego();
+}
+
