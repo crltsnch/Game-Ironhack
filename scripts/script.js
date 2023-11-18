@@ -47,12 +47,14 @@ const iniciarJuego = (button, letraClickeada) => {
                 letrasCorrectas.push(letra);
                 cajaPalabra.querySelectorAll("li")[index].classList.add("correcta");
             }
-        } else {
+                
+            else {
             //Si la letra no está en la palabraActual
             contadorIntentosMal++;
             textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
             imgAhorcado.src = 'images/hangman-${contadorIntentosMal}.svg';
-        }
+            }
+            
         button.disabled = true; //Desactivando el botón clickeado
         textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
         //Llamando a la función finDelJuego si el usuario gana o pierde
