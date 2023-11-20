@@ -13,18 +13,18 @@ const reiniciarJuego = () => {
     // Riniciando variables del juego y elementos de la interfaz de usuario
     letrasCorrectas = [];
     contadorIntentosMal = 0;
-    imagenAhorcado.src = "images/hangman-0.svg";
+    imgAhorcado.src = "images/hangman-0.svg";
     textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
-    cajaPalabra.innerHTML = palabraActual.split("").map(() => '<li class="letter"></li>').join("");
-    cajaTeclado.querySelectorAll("button").forEach(btn => (btn.disabled = false));
-    modalJuego.classList.remove("show");
+    PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter"></li>').join("");
+    tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));
+    juegoModal.classList.remove("show");
 }
 
 const obtenerPalabraAleatoria = () => {
     //Seleccionando una palabra aleatoria y pista del array de palabras
-    const { word, hint} = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
+    const { word, hint} = worldList[Math.floor(Math.random() * worldList.length)];
     palabraActual = word; //Haciendo que la palabra actual sea la palabra seleccionada
-    document.querySelector(".hint-text b").innerText = hint; //Mostrando la pista
+    document.querySelector(".texto-intentos b").innerText = hint; //Mostrando la pista
     reiniciarJuego();
 }
 
@@ -44,15 +44,14 @@ const iniciarJuego = (button, letraClickeada) => {
         [...palabraActual].forEach((letra, index) => {
             if (letra === letraClickeada) {
                 letrasCorrectas.push(letra);
-                cajaPalabra.querySelectorAll("li")[index].innerText = letra;
-                cajaPalabra.querySelectorAll("li")[index].classList.add("correcta");
+                PalabraMostrada.querySelectorAll("li")[index].innerText = letra;
+                PalabraMostrada.querySelectorAll("li")[index].classList.add("correcta");
             }
         });
                 
         }   else {
             //Si la letra no está en la palabraActual
             contadorIntentosMal++;
-            textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
             imgAhorcado.src = 'images/hangman-${contadorIntentosMal}.svg';
             }
 
@@ -67,7 +66,9 @@ const iniciarJuego = (button, letraClickeada) => {
 for (let i=97; i<=122; i++) {
     const button = document.createElement("button");
     button.innerText = String.fromCharCode(i);
-    cajaTeclado.appendChild(button);
+    tecladoDiv.appendChild(button);
     button.addEventListener("click", (e) => iniciarJuego(e.target, String.fromCharCode(i)));
 }
 
+obtenerPalabraAleatoria();
+jugarDeNuevo.addEventListener("click", obtenerPalabraAleatoria);
