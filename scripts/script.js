@@ -14,7 +14,7 @@ const reiniciarJuego = () => {
     letrasCorrectas = [];
     contadorIntentosMal = 0;
     imgAhorcado.src = "images/hangman-0.svg";
-    textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
+    textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
     PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter"></li>').join("");
     tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));
     juegoModal.classList.remove("show");
@@ -31,9 +31,9 @@ const obtenerPalabraAleatoria = () => {
 const finDelJuego = (esVictoria) => {
     //Despues de completar el juego
     const textoModal = esVictoria ? 'Has encontrado la palabra:' : 'La palabra correcta era:';
-    modalJuego.querySelector("img").src = 'images/${esVictoria ? "win" : "lose"}.gif';
+    modalJuego.querySelector("img").src = `images/${esVictoria ? "win" : "lose"}.gif`;
     modalJuego.querySelector("h4").innerText = esVictoria ? '¡Felicidades!' : '¡Fin del juego!';
-    modalJuego.querySelector("p").innerHTML = '${textoModal} <b>${palabraActual}</b>';
+    modalJuego.querySelector("p").innerHTML = `${textoModal} <b>${palabraActual}</b>`;
     modalJuego.classList.add("show");
 }
 
@@ -52,11 +52,11 @@ const iniciarJuego = (button, letraClickeada) => {
         }   else {
             //Si la letra no está en la palabraActual
             contadorIntentosMal++;
-            imgAhorcado.src = 'images/hangman-${contadorIntentosMal}.svg';
+            imgAhorcado.src = `images/hangman-${contadorIntentosMal}.svg`;
             }
 
         button.disabled = true; //Desactivando el botón clickeado
-        textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
+        textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
         //Llamando a la función finDelJuego si el usuario gana o pierde
         if (contadorIntentosMal === intentosMaximos) return finDelJuego(false);
         if (letrasCorrectas.length === palabraActual.length) return finDelJuego(true);
@@ -72,3 +72,4 @@ for (let i=97; i<=122; i++) {
 
 obtenerPalabraAleatoria();
 jugarDeNuevo.addEventListener("click", obtenerPalabraAleatoria);
+
