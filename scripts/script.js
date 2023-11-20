@@ -43,18 +43,19 @@ const iniciarJuego = (button, letraClickeada) => {
         //Mostrando todas las letras correctas en la visualizacion de la palabra
         [...palabraActual].forEach((letra, index) => {
             if (letra === letraClickeada) {
-                cajaPalabra.querySelectorAll("li")[index].innerText = letra;
                 letrasCorrectas.push(letra);
+                cajaPalabra.querySelectorAll("li")[index].innerText = letra;
                 cajaPalabra.querySelectorAll("li")[index].classList.add("correcta");
             }
+        });
                 
-            else {
+        }   else {
             //Si la letra no está en la palabraActual
             contadorIntentosMal++;
             textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
             imgAhorcado.src = 'images/hangman-${contadorIntentosMal}.svg';
             }
-            
+
         button.disabled = true; //Desactivando el botón clickeado
         textoIntentos.innerText = '${contadorIntentosMal} / ${intentosMaximos}';
         //Llamando a la función finDelJuego si el usuario gana o pierde
@@ -68,5 +69,5 @@ for (let i=97; i<=122; i++) {
     button.innerText = String.fromCharCode(i);
     cajaTeclado.appendChild(button);
     button.addEventListener("click", (e) => iniciarJuego(e.target, String.fromCharCode(i)));
-    
 }
+
