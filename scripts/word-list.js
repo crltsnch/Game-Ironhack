@@ -1,4 +1,4 @@
-const worldList = [
+const wordList = [
     { word: "manzana", hint: "Comestible, de forma redondeada y algo hundida por los extremos, piel fina, de color verde, amarillo o rojo."},
     { word: "ovoviviparo", hint: "Se aplica a los animales cuyos embriones se desarrollan totalmente en el huevo que está en el interior del cuerpo de la madre."},
     { word: "oxigeno", hint: "Elemento químico gaseoso, incoloro, inodoro e insípido, que constituye una quinta parte del aire atmosférico."},
