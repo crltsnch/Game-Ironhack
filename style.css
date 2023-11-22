@@ -13,7 +13,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #a2578b;
+  background: rgb(212,255,203);
+  background: linear-gradient(90deg, rgba(212,255,203,1) 0%, rgba(195,255,247,1) 50%, rgba(207,213,255,1) 100%);
 }
 
 .contenedor {

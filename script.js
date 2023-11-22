@@ -10,6 +10,7 @@ let palabraActual, letrasCorrectas, contadorIntentosMal;
 const intentosMaximos = 6;
 
 const reiniciarJuego = () => {
+    console.log("Reiniciando juego...")
     // Riniciando variables del juego y elementos de la interfaz de usuario
     letrasCorrectas = [];
     contadorIntentosMal = 0;
@@ -17,10 +18,11 @@ const reiniciarJuego = () => {
     textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
     PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter"></li>').join("");
     tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));
-    juegoModal.classList.remove("show");
+    juegoModal.classList.remove("mostrar");
 }
 
 const obtenerPalabraAleatoria = () => {
+    console.log("Obteniendo palabra aleatoria...")
     //Seleccionando una palabra aleatoria y pista del array de palabras
     const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
     palabraActual = word; //Haciendo que la palabra actual sea la palabra seleccionada
@@ -30,9 +32,9 @@ const obtenerPalabraAleatoria = () => {
 
 
 const iniciarJuego = (button, letraClickeada) => {
-    //Comprobando si la letra clickeada está en la palabraActual
+    // Comprobando si la letra clickeada está en la palabraActual
     if (palabraActual.includes(letraClickeada)) {
-        //Mostrando todas las letras correctas en la visualizacion de la palabra
+        // Mostrando todas las letras correctas en la visualización de la palabra
         [...palabraActual].forEach((letra, index) => {
             if (letra === letraClickeada) {
                 letrasCorrectas.push(letra);
@@ -40,25 +42,32 @@ const iniciarJuego = (button, letraClickeada) => {
                 PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");
             }
         });
-                
+
     } else {
         // Si la letra no está en la palabraActual
         contadorIntentosMal++;
-        imgAhorcado.src = `images/hangman-${contadorIntentosMal}.svg`;
-      }
+        imgAhorcado.src = `images/hangman-${Math.min(contadorIntentosMal, 6)}.svg`;
 
-        button.disabled = true; //Desactivando el botón clickeado
+        button.disabled = true; // Desactivando el botón clickeado
         textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
-        //Llamando a la función finDelJuego si el usuario gana o pierde
-        if (contadorIntentosMal === intentosMaximos) {
+
+        // Llamando a la función finDelJuego si el usuario pierde
+        if (contadorIntentosMal >= intentosMaximos) {
             finDelJuego(false);
+            return; // Salir de la función para evitar que se siga ejecutando después de perder
         }
-        if (letrasCorrectas.length === palabraActual.length) {
-            finDelJuego(true);
-        }
+    }
+
+    // Llamando a la función finDelJuego si el usuario gana
+    if (letrasCorrectas.length === palabraActual.length) {
+        finDelJuego(true);
+    }
 };
 
+
+
 const finDelJuego = (esVictoria) => {
+    console.log(`Fin del juego: ${esVictoria ? "Victoria" : "Derrota"}`)
     // Después de completar el juego
     const textoModal = esVictoria
       ? "Has encontrado la palabra:"
@@ -66,7 +75,7 @@ const finDelJuego = (esVictoria) => {
     juegoModal.querySelector("img").src = `images/${esVictoria ? "winner" : "loser"}.gif`;
     juegoModal.querySelector("h4").innerText = esVictoria ? "¡Felicidades!" : "¡Fin del juego!";
     juegoModal.querySelector("p").innerHTML = `${textoModal} <b>${palabraActual}</b>`;
-    juegoModal.classList.add("show");
+    juegoModal.classList.add("mostrar");
   };
 
 // creando botones dle teclado y añadiendo even listeners
