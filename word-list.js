@@ -16,7 +16,6 @@ const wordList = [
     { word: "nebulosa", hint: "Región interestelar de gas y polvo." },
     { word: "anticonstitucionalidad", hint: "Contrario a lo establecido en la Constitución." },
     { word: "inconmensurabilidad", hint: "Imposibilidad de ser comparado o medido con exactitud." },
-    { word: "hipopotomonstrosesquipedaliofobia", hint: "Miedo irracional a las palabras largas." },
     { word: "sesquipedalidad", hint: "Cualidad de ser largo o prolijo en la expresión." },
     { word: "supercalifragilisticoespialidoso", hint: "Palabra inventada famosa por Mary Poppins." },
     { word: "espectrofotometria", hint: "Medición de la intensidad de la luz absorbida o emitida por una sustancia." },
