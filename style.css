@@ -39,6 +39,7 @@ body {
     text-align: center;
     margin-top: 20px;
     text-transform: uppercase;
+    color: #4987bd;
 }
 
 .caja-juego .visualizacion-palabra {
@@ -48,11 +49,12 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .visualizacion-palabra .letra {
     width: 28px;
-    font-size: 2rem;
+    font-size: 4rem;
     text-align: center;
     font-weight: 600;
     margin-bottom: 40px;
@@ -67,7 +69,7 @@ body {
 
 .caja-juego h4 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 15px;
     font-weight: 400;
     margin-bottom: 15px;
 }
@@ -77,6 +79,7 @@ body {
 }
 
 .caja-juego .texto-intentos b {
+    font-size: 15px;
     color: #ab2424
 }
 

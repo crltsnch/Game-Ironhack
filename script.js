@@ -16,7 +16,7 @@ const reiniciarJuego = () => {
     contadorIntentosMal = 0;
     imgAhorcado.src = "images/hangman-0.svg";
     textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
-    PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter"></li>').join("");
+    PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter">_</li>').join("");
     tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));
     juegoModal.classList.remove("mostrar");
 }
