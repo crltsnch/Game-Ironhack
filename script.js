@@ -7,6 +7,7 @@ const jugarDeNuevo = juegoModal.querySelector(".reiniciar");
 const sonidoGanado = document.getElementById("sonido-ganado");
 const sonidoPerdido = document.getElementById("sonido-perdido");
 const sonidoLetraMal = document.getElementById("sonido-letra-mal");
+const sonidoLetraBien = document.getElementById("sonido-letra-bien");
 
 //Inicializando variables de juego
 let palabraActual, letrasCorrectas, contadorIntentosMal;
@@ -43,6 +44,9 @@ const iniciarJuego = (button, letraClickeada) => {
                 letrasCorrectas.push(letra);
                 PalabraMostrada.querySelectorAll("li")[index].innerText = letra;
                 PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");
+                
+                //Reproduciendo sonido de letra correcta
+                sonidoLetraBien.play();
             }
         });
 
@@ -66,6 +70,7 @@ const iniciarJuego = (button, letraClickeada) => {
     // Llamando a la función finDelJuego si el usuario gana
     if (letrasCorrectas.length === palabraActual.length) {
         finDelJuego(true);
+
     }
 };
 
