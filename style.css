@@ -212,3 +212,14 @@ body {
         padding: 10px 18px;
     }
 }
+
+#confetiGif {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100; /* Asegúrate de que esté por delante de otros elementos */
+    display: none;
+    animation: confeti 5s ease-out;
+}

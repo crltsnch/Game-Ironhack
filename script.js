@@ -8,6 +8,7 @@ const sonidoGanado = document.getElementById("sonido-ganado");
 const sonidoPerdido = document.getElementById("sonido-perdido");
 const sonidoLetraMal = document.getElementById("sonido-letra-mal");
 const sonidoLetraBien = document.getElementById("sonido-letra-bien");
+const confeti = document.getElementById("confetiGif");
 
 //Inicializando variables de juego
 let palabraActual, letrasCorrectas, contadorIntentosMal;
@@ -89,6 +90,7 @@ const finDelJuego = (esVictoria) => {
 
     if (esVictoria) {
         sonidoGanado.play();
+        confeti.style.display = "block";
     }
 
     if (!esVictoria) {
