@@ -6,6 +6,7 @@ const juegoModal = document.querySelector(".modal-juego");
 const jugarDeNuevo = juegoModal.querySelector(".reiniciar");
 const sonidoGanado = document.getElementById("sonido-ganado");
 const sonidoPerdido = document.getElementById("sonido-perdido");
+const sonidoLetraMal = document.getElementById("sonido-letra-mal");
 
 //Inicializando variables de juego
 let palabraActual, letrasCorrectas, contadorIntentosMal;
@@ -52,6 +53,8 @@ const iniciarJuego = (button, letraClickeada) => {
 
         button.disabled = true; // Desactivando el botón clickeado
         textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
+
+        sonidoLetraMal.play();
 
         // Llamando a la función finDelJuego si el usuario pierde
         if (contadorIntentosMal >= intentosMaximos) {
