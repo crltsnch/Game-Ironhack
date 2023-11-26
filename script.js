@@ -5,6 +5,7 @@ const imgAhorcado = document.querySelector(".caja-ahorcado img");
 const juegoModal = document.querySelector(".modal-juego");
 const jugarDeNuevo = juegoModal.querySelector(".reiniciar");
 const sonidoGanado = document.getElementById("sonido-ganado");
+const sonidoPerdido = document.getElementById("sonido-perdido");
 
 //Inicializando variables de juego
 let palabraActual, letrasCorrectas, contadorIntentosMal;
@@ -80,6 +81,10 @@ const finDelJuego = (esVictoria) => {
 
     if (esVictoria) {
         sonidoGanado.play();
+    }
+
+    if (!esVictoria) {
+        sonidoPerdido.play();
     }
   };
 
