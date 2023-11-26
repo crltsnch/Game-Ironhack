@@ -45,6 +45,7 @@ const iniciarJuego = (button, letraClickeada) => {
                 letrasCorrectas.push(letra);
                 PalabraMostrada.querySelectorAll("li")[index].innerText = letra;
                 PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");
+                button.disabled = true
                 
                 //Reproduciendo sonido de letra correcta
                 sonidoLetraBien.play();
@@ -90,7 +91,12 @@ const finDelJuego = (esVictoria) => {
 
     if (esVictoria) {
         sonidoGanado.play();
+        // Mostrar GIF de confeti
         confeti.style.display = "block";
+        // Ocultar el confeti después de 3 segundos
+        setTimeout(() => {
+            confeti.style.display = "none";
+        }, 3000);
     }
 
     if (!esVictoria) {
