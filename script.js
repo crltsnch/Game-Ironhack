@@ -4,6 +4,7 @@ const tecladoDiv = document.querySelector(".teclado");
 const imgAhorcado = document.querySelector(".caja-ahorcado img");
 const juegoModal = document.querySelector(".modal-juego");
 const jugarDeNuevo = juegoModal.querySelector(".reiniciar");
+const sonidoGanado = document.getElementById("sonidoGanado");
 
 //Inicializando variables de juego
 let palabraActual, letrasCorrectas, contadorIntentosMal;
@@ -76,6 +77,12 @@ const finDelJuego = (esVictoria) => {
     juegoModal.querySelector("h4").innerText = esVictoria ? "¡Felicidades!" : "¡Fin del juego!";
     juegoModal.querySelector("p").innerHTML = `${textoModal} <b>${palabraActual}</b>`;
     juegoModal.classList.add("mostrar");
+
+    if (esVictoria) {
+        sonidoGanado.play();
+    }
+
+    
   };
 
 // creando botones dle teclado y añadiendo even listeners
