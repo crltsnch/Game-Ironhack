@@ -56,8 +56,7 @@ const iniciarJuego = (button, letraClickeada) => {
                 PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");  //añade la clase adivinada al elemento li correspondiente al indice de la letra clickeada
                 button.disabled = true  //desactiva el boton clickeado
                 
-                //Reproduciendo sonido de letra correcta
-                sonidoLetraBien.play();
+                sonidoLetraBien.play();  //Reproduciendo sonido de letra correcta
             }
         });
 
@@ -66,12 +65,12 @@ const iniciarJuego = (button, letraClickeada) => {
     else {
         // Si la letra no está en la palabraActual
         contadorIntentosMal++;
-        imgAhorcado.src = `images/hangman-${Math.min(contadorIntentosMal, 6)}.svg`;
+        imgAhorcado.src = `images/hangman-${Math.min(contadorIntentosMal, 6)}.svg`;  //actualiza la imagen del ahorcado con el numero de intentos mal
 
         button.disabled = true; // Desactivando el botón clickeado
-        textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
+        textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;  //actualiza el texto de intentos incorrectos
 
-        sonidoLetraMal.play();
+        sonidoLetraMal.play();  //Reproduciendo sonido de letra incorrecta
 
         // Llamando a la función finDelJuego si el usuario pierde
         if (contadorIntentosMal >= intentosMaximos) {
