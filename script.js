@@ -37,9 +37,12 @@ const reiniciarJuego = () => {
 const obtenerPalabraAleatoria = () => {
     //console.log("Obteniendo palabra aleatoria...") lo utilicé para rastrear la ejecución en consola
     //Seleccionando una palabra aleatoria y pista del array de palabras
-    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];   //desestructuración de objetos
-    palabraActual = word;  //Haciendo que la palabra actual sea la palabra seleccionada antes
-    document.querySelector(".texto-pista").innerText = hint;  //Mostrando la pista actualizandola de antes con innerText
+    if (!palabraActual) { // Si palabraActual no tiene un valor (es la primera vez)
+        // Seleccionando una palabra aleatoria y pista del array de palabras
+        const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
+        palabraActual = word; // Haciendo que la palabra actual sea la palabra seleccionada
+        document.querySelector(".texto-pista").innerText = hint;
+    }
     reiniciarJuego();  //llamando a la funcion reiniciarJuego
 }
 
@@ -126,6 +129,20 @@ for (let i=97; i<=122; i++) {   //bucle for para crear los botones del teclado, 
     //el botón que se ha hecho clic (e.target) y la letra correspondiente del alfabeto (String.fromCharCode(i)).
     button.addEventListener("click", (e) => iniciarJuego(e.target, String.fromCharCode(i)));
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modalInicio = document.querySelector(".modal-inicio");
+    const comenzarJuegoBtn = modalInicio.querySelector(".comenzar-juego");
+
+    // Mostrar modal de inicio
+    modalInicio.classList.add("mostrar");
+
+    //Even Listener para comenzar el juego al hacer clic en el botón
+    comenzarJuegoBtn.addEventListener("click", () => {
+        modalInicio.classList.remove("mostrar");
+        obtenerPalabraAleatoria();
+    });
+});
 
 obtenerPalabraAleatoria();
 jugarDeNuevo.addEventListener("click", obtenerPalabraAleatoria);  //cuando el usuario haga clic en el botón de jugar de nuevo, se llama a la función obtenerPalabraAleatoria
