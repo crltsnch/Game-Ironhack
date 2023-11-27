@@ -18,28 +18,30 @@ const confeti = document.getElementById("confetiGif");
 let palabraActual, letrasCorrectas, contadorIntentosMal;
 const intentosMaximos = 6;
 
+//Funcion reiniciarJuego, utilizo const en vez de function porque no voy a reasignar la funcion
 const reiniciarJuego = () => {
     //console.log("Reiniciando juego...") lo utilice para rastrear la ejecución en consola
     // Riniciando variables del juego y elementos de la interfaz de usuario
-    letrasCorrectas = [];
+    letrasCorrectas = [];   //arra letras correctas
     contadorIntentosMal = 0;
     imgAhorcado.src = "images/hangman-0.svg";
-    textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;
-    PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter">_</li>').join("");
-    tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));
-    juegoModal.classList.remove("mostrar");
+    textoIntentos.innerText = `${contadorIntentosMal} / ${intentosMaximos}`;  //acutalizamos con innerText
+    PalabraMostrada.innerHTML = palabraActual.split("").map(() => '<li class="letter">_</li>').join("");   //innterHTML para actualizar el contenido en html con _ para cada letra
+    tecladoDiv.querySelectorAll("button").forEach(btn => (btn.disabled = false));  //seleccionamos todos los botones del teclado y los habilitamos
+    juegoModal.classList.remove("mostrar");  
 }
 
+//Funcion obtener la palabra aleatoria a adivinar
 const obtenerPalabraAleatoria = () => {
     //console.log("Obteniendo palabra aleatoria...") lo utilicé para rastrear la ejecución en consola
     //Seleccionando una palabra aleatoria y pista del array de palabras
-    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
-    palabraActual = word; //Haciendo que la palabra actual sea la palabra seleccionada
-    document.querySelector(".texto-pista").innerText = hint; //Mostrando la pista
-    reiniciarJuego();
+    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];   //desestructuración de objetos
+    palabraActual = word;  //Haciendo que la palabra actual sea la palabra seleccionada antes
+    document.querySelector(".texto-pista").innerText = hint;  //Mostrando la pista actualizandola de antes con innerText
+    reiniciarJuego();  //llamando a la funcion reiniciarJuego
 }
 
-
+//Función que inicia el juego con los argumentos boton y letra seleccionada
 const iniciarJuego = (button, letraClickeada) => {
     // Comprobando si la letra clickeada está en la palabraActual
     if (palabraActual.includes(letraClickeada)) {
@@ -108,7 +110,7 @@ const finDelJuego = (esVictoria) => {
     }
   };
 
-// creando botones dle teclado y añadiendo even listeners
+// creando botones del teclado y añadiendo even listeners
 for (let i=97; i<=122; i++) {
     const button = document.createElement("button");
     button.innerText = String.fromCharCode(i);
