@@ -1,3 +1,7 @@
+
+//Seleccionador de elementos del DOM, variables const que almacenan referencias a estos elementos.
+// .querySelector() seleccionar elementos por etiquetas, clases, atributos...
+// .getElementById() seleccionar elementos por id
 const PalabraMostrada = document.querySelector(".visualizacion-palabra");
 const textoIntentos = document.querySelector(".texto-intentos b");
 const tecladoDiv = document.querySelector(".teclado");
@@ -15,7 +19,7 @@ let palabraActual, letrasCorrectas, contadorIntentosMal;
 const intentosMaximos = 6;
 
 const reiniciarJuego = () => {
-    console.log("Reiniciando juego...")
+    //console.log("Reiniciando juego...") lo utilice para rastrear la ejecución en consola
     // Riniciando variables del juego y elementos de la interfaz de usuario
     letrasCorrectas = [];
     contadorIntentosMal = 0;
@@ -27,7 +31,7 @@ const reiniciarJuego = () => {
 }
 
 const obtenerPalabraAleatoria = () => {
-    console.log("Obteniendo palabra aleatoria...")
+    //console.log("Obteniendo palabra aleatoria...") lo utilicé para rastrear la ejecución en consola
     //Seleccionando una palabra aleatoria y pista del array de palabras
     const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
     palabraActual = word; //Haciendo que la palabra actual sea la palabra seleccionada
