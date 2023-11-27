@@ -56,12 +56,12 @@ body {
 
 .modal-inicio p {
     font-size: 1.15rem;
-    margin: 15px 0 30px;
+    margin: 15px 0 10px;
     font-weight: 500;
 }
 
 .modal-inicio p b {
-    color: rgb(112, 154, 190);
+    color: rgb(93, 85, 201);
     font-weight: 600;
 }
 
@@ -75,11 +75,11 @@ body {
     font-weight: 600;
     border-radius: 4px;
     text-transform: uppercase;
-    background-color: rgb(135, 197, 68);
+    background-color: rgb(158, 210, 102);
 }
 
 .modal-inicio button:hover {
-    background: rgb(156, 185, 210, 1);
+    background: rgb(172, 198, 144);
 }
 
 
@@ -236,7 +236,7 @@ body {
 }
 
 .modal-juego p b {
-    color: rgb(112, 154, 190);
+    color: rgb(93, 85, 201);
     font-weight: 600;
 }
 .modal-juego button {
