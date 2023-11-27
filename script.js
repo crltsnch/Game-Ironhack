@@ -74,30 +74,32 @@ const iniciarJuego = (button, letraClickeada) => {
 
         // Llamando a la función finDelJuego si el usuario pierde
         if (contadorIntentosMal >= intentosMaximos) {
-            finDelJuego(false);
-            return; // Salir de la función para evitar que se siga ejecutando después de perder
+            finDelJuego(false);  //llamando a la funcion finDelJuego con el argumento false ya que no es victoria
+            return;  // Salir de la función para evitar que se siga ejecutando después de perder
         }
     }
 
     // Llamando a la función finDelJuego si el usuario gana
     if (letrasCorrectas.length === palabraActual.length) {
-        finDelJuego(true);
+        finDelJuego(true);  //llamando a la funcion finDelJuego con el argumento true ya que es victoria
 
     }
 };
 
 
-
+//Función fin del juego
 const finDelJuego = (esVictoria) => {
-    console.log(`Fin del juego: ${esVictoria ? "Victoria" : "Derrota"}`)
-    // Después de completar el juego
-    const textoModal = esVictoria
+    //console.log(`Fin del juego: ${esVictoria ? "Victoria" : "Derrota"}`)
+    //Después de completar el juego, mostrar texto de palabra adivinada o incorrecta 
+    const textoModal = esVictoria   //condicion ? expresion_verdadera : expresion_falsa;
       ? "Has encontrado la palabra:"
       : "La palabra correcta era:";
+
+    //Configuramos la cajita (modal-juego) según el resultaado del juego
     juegoModal.querySelector("img").src = `images/${esVictoria ? "winner" : "loser"}.gif`;
     juegoModal.querySelector("h4").innerText = esVictoria ? "¡Felicidades!" : "¡Fin del juego!";
     juegoModal.querySelector("p").innerHTML = `${textoModal} <b>${palabraActual}</b>`;
-    juegoModal.classList.add("mostrar");
+    juegoModal.classList.add("mostrar");  //añadimos la clase mostrar al modal-juego
 
     if (esVictoria) {
         sonidoGanado.play();
@@ -114,13 +116,16 @@ const finDelJuego = (esVictoria) => {
     }
   };
 
+
 // creando botones del teclado y añadiendo even listeners
-for (let i=97; i<=122; i++) {
-    const button = document.createElement("button");
-    button.innerText = String.fromCharCode(i);
-    tecladoDiv.appendChild(button);
+for (let i=97; i<=122; i++) {   //bucle for para crear los botones del teclado, 97 es el codigo ascii de la letra a y 122 de la letra z
+    const button = document.createElement("button");  //Para cada iteración del bucle, se crea un nuevo elemento button en el DOM.
+    button.innerText = String.fromCharCode(i);  //Establece el texto del botón con la letra correspondiente del alfabeto. String.fromCharCode(i) convierte el código ASCII i en su representación de cadena
+    tecladoDiv.appendChild(button);  //Agrega el botón creado al elemento con la clase tecladoDiv
+    //Agregamos un event listener a cada botón que se ejecutará cuando se haga clic en el botón. El event listener llama a la función iniciarJuego con dos argumentos:
+    //el botón que se ha hecho clic (e.target) y la letra correspondiente del alfabeto (String.fromCharCode(i)).
     button.addEventListener("click", (e) => iniciarJuego(e.target, String.fromCharCode(i)));
 }
 
 obtenerPalabraAleatoria();
-jugarDeNuevo.addEventListener("click", obtenerPalabraAleatoria);
+jugarDeNuevo.addEventListener("click", obtenerPalabraAleatoria);  //cuando el usuario haga clic en el botón de jugar de nuevo, se llama a la función obtenerPalabraAleatoria
