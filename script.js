@@ -18,6 +18,7 @@ const confeti = document.getElementById("confetiGif");
 let palabraActual, letrasCorrectas, contadorIntentosMal;
 const intentosMaximos = 6;
 
+
 //Funcion reiniciarJuego, utilizo const en vez de function porque no voy a reasignar la funcion
 const reiniciarJuego = () => {
     //console.log("Reiniciando juego...") lo utilice para rastrear la ejecución en consola
@@ -31,6 +32,7 @@ const reiniciarJuego = () => {
     juegoModal.classList.remove("mostrar");  
 }
 
+
 //Funcion obtener la palabra aleatoria a adivinar
 const obtenerPalabraAleatoria = () => {
     //console.log("Obteniendo palabra aleatoria...") lo utilicé para rastrear la ejecución en consola
@@ -41,24 +43,27 @@ const obtenerPalabraAleatoria = () => {
     reiniciarJuego();  //llamando a la funcion reiniciarJuego
 }
 
+
 //Función que inicia el juego con los argumentos boton y letra seleccionada
 const iniciarJuego = (button, letraClickeada) => {
     // Comprobando si la letra clickeada está en la palabraActual
     if (palabraActual.includes(letraClickeada)) {
         // Mostrando todas las letras correctas en la visualización de la palabra
-        [...palabraActual].forEach((letra, index) => {
+        [...palabraActual].forEach((letra, index) => {   //spread operator para convertir la palabra en un array, forEach itera en cada elemento del array y letra es el caracter actual y index su posición
             if (letra === letraClickeada) {
-                letrasCorrectas.push(letra);
-                PalabraMostrada.querySelectorAll("li")[index].innerText = letra;
-                PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");
-                button.disabled = true
+                letrasCorrectas.push(letra);   //añadimos la letra al array de letras correctas
+                PalabraMostrada.querySelectorAll("li")[index].innerText = letra;  //actualiza la visualizacion de la palabra seleccionando el elemento li correspondiente al indice de la letra clickeada
+                PalabraMostrada.querySelectorAll("li")[index].classList.add("adivinada");  //añade la clase adivinada al elemento li correspondiente al indice de la letra clickeada
+                button.disabled = true  //desactiva el boton clickeado
                 
                 //Reproduciendo sonido de letra correcta
                 sonidoLetraBien.play();
             }
         });
 
-    } else {
+    } 
+    
+    else {
         // Si la letra no está en la palabraActual
         contadorIntentosMal++;
         imgAhorcado.src = `images/hangman-${Math.min(contadorIntentosMal, 6)}.svg`;
