@@ -10,7 +10,7 @@ const wordList = [
     { word: "orquidea", hint: "Planta con flores exquisitas y complejas." },
     { word: "paraguas", hint: "Objeto que protege de la lluvia." },
     { word: "murcielago", hint: "Mamífero volador nocturno." },
-    { word: "calabaza", hint: "Fruta de piel dura y pulpa comestible." },
+    { word: "calabaza", hint: "Muy vario en su forma, tamaño y color, por lo común grande, redondo y con multitud de pipas o semillas." },
     { word: "quimera", hint: "Criatura mitológica con partes de varios animales." },
     { word: "serenidad", hint: "Tranquilidad y paz interior." },
     { word: "nebulosa", hint: "Región interestelar de gas y polvo." },
