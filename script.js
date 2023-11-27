@@ -37,12 +37,9 @@ const reiniciarJuego = () => {
 const obtenerPalabraAleatoria = () => {
     //console.log("Obteniendo palabra aleatoria...") lo utilicé para rastrear la ejecución en consola
     //Seleccionando una palabra aleatoria y pista del array de palabras
-    if (!palabraActual) { // Si palabraActual no tiene un valor (es la primera vez)
-        // Seleccionando una palabra aleatoria y pista del array de palabras
-        const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];
-        palabraActual = word; // Haciendo que la palabra actual sea la palabra seleccionada
-        document.querySelector(".texto-pista").innerText = hint;
-    }
+    const {word, hint} = wordList[Math.floor(Math.random() * wordList.length)];   //desestructuración de objetos
+    palabraActual = word;  //Haciendo que la palabra actual sea la palabra seleccionada antes
+    document.querySelector(".texto-pista").innerText = hint;  //Mostrando la pista actualizandola de antes con innerText
     reiniciarJuego();  //llamando a la funcion reiniciarJuego
 }
 
