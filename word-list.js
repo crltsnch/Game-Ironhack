@@ -73,7 +73,6 @@ const wordList = [
     { word: "hipertension", hint: "Aumento persistente de la presión arterial." },
     { word: "artritis", hint: "Inflamación de las articulaciones que causa dolor y rigidez." },
     { word: "craneo", hint: "Hueso que forma la cabeza y aloja el cerebro." },
-    { word: "riñon", hint: "Órgano encargado de filtrar la sangre y producir la orina." },
     { word: "femur", hint: "Hueso largo y fuerte del muslo." },
     { word: "pulmon", hint: "Órgano esencial para la respiración." },
     { word: "corazon", hint: "Órgano muscular que bombea la sangre por todo el cuerpo." },
